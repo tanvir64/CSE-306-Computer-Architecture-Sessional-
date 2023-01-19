@@ -1,0 +1,17 @@
+=>input(s) to the register file will 4 bits each.
+=>we need to use 3 lower bits to find the desired register. (5/6 temp registers)
+=>Our mapping:
+bits(4..0)		register_name
+0000			$zero
+0001			$t0 
+0010			$t1
+0011 			$t2
+0100 			$t3
+0101			$t4
+0110			$t5 (we will use this for implementing push and pop)
+
+#how it functions/works:
+=> 4 inputs and 2 outputs.
+=> outputs the contents of the registers corresponding to read register inputs, no extra signal required.for example, if input to the register files are 0001 and 0010 in reg1 and reg2,then the data contained in those registers will be given as output of the register file which will be used later.
+=> for writing to register, we need to synchronize the register file such that write is performed after completing a read cycle. extra control signals: regwrite and clk is needed to perform write operation. The clock is edge-triggered as well.
+
